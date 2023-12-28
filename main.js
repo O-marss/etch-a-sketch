@@ -15,15 +15,28 @@ sketchBox.className = "sketchBox";
 
 
 
-for (i=0 ; i < 256 ; i++){
-    let grid = document.createElement("div"); 
-    grid.className = "grid"
-    grid.addEventListener("mouseenter",function(){
-        grid.style.backgroundColor="black"
-    })
-    sketchBox.append(grid)
-}
 
+function createGrids(){
+    
+    let earse = document.createElement("button");
+    earse.className = "earse";
+    earse.textContent = "Earse";
+
+    for (i= 1; i < 257 ; i++){
+        let grid = document.createElement("div"); 
+        grid.className = "grid";
+        sketchBox.append(grid)
+    
+        grid.addEventListener('mouseenter',function(){grid.style.backgroundColor='gold';})
+        
+        earse.addEventListener("click",function(){
+            grid.style.backgroundColor="white";
+        })
+    }
+    container.append(earse)
+} 
+
+createGrids()
 
 
 // Adding the divs to html file
