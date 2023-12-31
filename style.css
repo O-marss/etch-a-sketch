@@ -37,10 +37,15 @@ body{
 }
 
 button{
+    display: block;
     width: 150px;
     height: 60px;
     margin-right: 80px;
     font-size: 25px;
 }
 
-
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

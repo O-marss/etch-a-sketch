@@ -17,6 +17,7 @@ let height = sketchBox.style.height = "480px";
 
 
 function createGrid(){
+    const earse = document.querySelector(".earse");
     const reset = document.querySelector(".reset");
     let mouse = false;
         
@@ -28,18 +29,35 @@ function createGrid(){
         grid.style.height = `${sixteenDim}px`;
         sketchBox.append(grid);
         
-        reset.addEventListener("click",function(){
-            grid.style.backgroundColor="white";
-            mouse = true;
-        })
-
-        if(mouse == false){
-            sketchBox.addEventListener('mousedown',function(){grid.onmouseenter=function(){grid.style.backgroundColor='gold'}})
-            sketchBox.addEventListener('mouseup',function(){grid.onmouseenter=function(){return true}})
+        function hovering(){
+            
+            if(mouse == false){
+                sketchBox.addEventListener('mousedown',function(){grid.onmouseenter=function(){grid.style.backgroundColor='gold'}});
+                sketchBox.addEventListener('mouseup',function(){grid.onmouseenter=function(){} });
+            }
         }
-        else{
+            
+        function earsing(){
             mouse = true;
-        } 
+            
+            if(mouse == true){
+                earse.addEventListener("click", function(){
+                    sketchBox.addEventListener('mousedown',function(){grid.onmouseenter=function(){grid.style.backgroundColor='white'}});
+                    sketchBox.addEventListener('mouseup',function(){grid.onmouseenter=function(){}})})
+            }
+        }
+        
+        function reseting(){
+            reset.addEventListener("click",function(){
+                mouse = false;
+                grid.style.backgroundColor="white";
+                hovering()
+            })
+        }
+
+        hovering()
+        earsing()
+        reseting()
     }
 }
 
