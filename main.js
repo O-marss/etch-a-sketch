@@ -38,7 +38,7 @@ function createGrid(){
             color.addEventListener("click",function(){
                 sketchBox.addEventListener('mousedown',function(){
                     mouse = false 
-                    grid.onmouseenter=function(){grid.style.backgroundColor='#DC8686'}});
+                    grid.onmouseenter=function(){grid.style.backgroundColor='#002B5B'}});
                 
                 sketchBox.addEventListener('mouseup',function(){
                     grid.onmouseenter=function(){} });
@@ -49,7 +49,7 @@ function createGrid(){
             
                 earse.addEventListener("click", function(){
                     sketchBox.addEventListener('mousedown',function(){grid.onmouseenter=function(){
-                        grid.style.backgroundColor='white'}});
+                        grid.style.backgroundColor='lightgray'}});
                     sketchBox.addEventListener('mouseup',function(){grid.onmouseenter=function(){}})})
         }
         
